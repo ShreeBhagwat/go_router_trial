@@ -32,9 +32,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             NavigatorButton(
                 buttonTitle: 'Edit profile',
                 onPressed: () {
-                  context.push(
-                    RouteNames.editProfile,
-                  );
+                  context.pushNamed(RouteNames.editProfile,
+                      pathParameters: {'userName': 'Shree'});
                 }),
           ],
         ),

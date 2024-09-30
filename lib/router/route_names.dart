@@ -10,6 +10,7 @@ class RouteNames {
   static const String errorRoute = 'error';
   static const String splashRoute = 'splash';
   static const String editProfile = 'editProfile';
+  static const String searchRoute = 'search';
 }
 
 extension RoutePath on String {
