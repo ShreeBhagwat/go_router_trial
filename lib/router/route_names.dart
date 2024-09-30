@@ -11,6 +11,7 @@ class RouteNames {
   static const String splashRoute = 'splash';
   static const String editProfile = 'editProfile';
   static const String searchRoute = 'search';
+  static const String settingsAbout = 'settings-about';
 }
 
 extension RoutePath on String {
