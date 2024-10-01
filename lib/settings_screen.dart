@@ -17,7 +17,7 @@ class SettingsScreen extends ConsumerWidget {
         child: NavigatorButton(
             buttonTitle: 'Buttton',
             onPressed: () {
-              context.pushNamed(RouteNames.settingsAbout);
+              context.pushNamed(RouteNames.settingsAboutRoute);
             }),
       ),
     );

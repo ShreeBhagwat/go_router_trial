@@ -6,7 +6,10 @@ class SettingsAboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings About Screen'),),
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        title: Text('Settings About Screen'),
+      ),
       body: const SafeArea(
         child: Center(
           child: Text('Settings About Screen'),

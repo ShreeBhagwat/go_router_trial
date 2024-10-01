@@ -1,5 +1,5 @@
 class RouteNames {
-  static const String initialRoute = 'root';
+  // static const String initialRoute = 'root';
   static const String homeRoute = 'home';
   static const String loginRoute = 'login';
   static const String registerRoute = 'register';
@@ -11,7 +11,7 @@ class RouteNames {
   static const String splashRoute = 'splash';
   static const String editProfile = 'editProfile';
   static const String searchRoute = 'search';
-  static const String settingsAbout = 'settings-about';
+  static const String settingsAboutRoute = 'settings-about';
 }
 
 extension RoutePath on String {
