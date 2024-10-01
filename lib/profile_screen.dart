@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_router_trial/common/splash_screen.dart';
 import 'package:go_router_trial/common/widgets/navigator_button.dart';
 import 'package:go_router_trial/router/route_names.dart';
 
@@ -32,8 +31,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             NavigatorButton(
                 buttonTitle: 'Edit profile',
                 onPressed: () {
-                  context.pushNamed(RouteNames.editProfile,
-                      pathParameters: {'userName': 'Shree'});
+                  context.pushNamed(
+                    RouteNames.editProfile,
+                    pathParameters: {'userName': 'Shree'},
+                  );
                 }),
           ],
         ),

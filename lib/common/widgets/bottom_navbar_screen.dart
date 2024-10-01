@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router_trial/common/providers/bottom_nav_provider.dart';
+import 'package:go_router/go_router.dart';
 import 'package:go_router_trial/home_screen.dart';
 import 'package:go_router_trial/profile_screen.dart';
 import 'package:go_router_trial/search_screen.dart';
 import 'package:go_router_trial/settings_screen.dart';
 
 class InitialScreen extends ConsumerWidget {
-  const InitialScreen({super.key});
+  const InitialScreen({super.key, required this.navigationShell});
+
+  final StatefulNavigationShell navigationShell;
 
   final List<BottomNavigationBarItem> items = const [
     BottomNavigationBarItem(
@@ -37,10 +39,10 @@ class InitialScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedIndex = ref.watch(bottomNavBarProvider);
+    // final selectedIndex = ref.watch(bottomNavBarProvider);
     return Scaffold(
       body: IndexedStack(
-        index: selectedIndex,
+        index: navigationShell.currentIndex,
         children: screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -50,11 +52,23 @@ class InitialScreen extends ConsumerWidget {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         items: items,
-        currentIndex: selectedIndex,
-        onTap: (int index) {
-          ref.read(bottomNavBarProvider.notifier).updateIndex(index);
-        },
+        currentIndex:navigationShell.currentIndex,
+        onTap: _switchBranch,
+        // (int index) {
+        //   ref.read(bottomNavBarProvider.notifier).updateIndex(index);
+        // },
       ),
+    );
+  }
+
+  void _switchBranch(int index) {
+    navigationShell.goBranch(
+      index,
+      // A common pattern when using bottom navigation bars is to support
+      // navigating to the initial location when tapping the item that is
+      // already active. This example demonstrates how to support this behavior,
+      // using the initialLocation parameter of goBranch.
+      initialLocation: index == navigationShell.currentIndex,
     );
   }
 }
